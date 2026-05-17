@@ -1,10 +1,9 @@
 /* src/styles/global.css */
 
-/* Importação Local (Zero Tracking) */
 @font-face {
   font-family: 'Iosevka';
   src: url('/fonts/Iosevka-Regular.woff2') format('woff2');
-  font-display: swap; /* Evita texto invisível no carregamento */
+  font-display: swap;
 }
 
 @font-face {
@@ -14,27 +13,42 @@
 }
 
 :root {
-  /* Paleta baseada no Catppuccin Mocha */
-  --bg-crust: #11111b; /* Fundo mais escuro para a Hero */
-  --bg-base: #1e1e2e; /* Fundo do site */
-  --text-main: #cdd6f4;
-  --text-muted: #a6adc8;
-  --accent-green: #a6e3a1; /* Suave, não agressivo */
-  --accent-amber: #f9e2af;
+  /* TTY Aesthetic: Preto absoluto e contraste alto */
+  --bg-crust: #000000;
+  --bg-base: #000000;
+  --text-main: #e5e5e5;
+  --text-muted: #888888;
+  --accent-green: #4af626; /* Verde phosphor terminal clássico */
+  --accent-amber: #ffb86c;
 
   /* Tipografia */
   --font-tui: 'Iosevka', monospace;
   --font-prose: 'Inter', sans-serif;
 }
 
+/* Resets vitais */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 body {
   background-color: var(--bg-base);
   color: var(--text-main);
   margin: 0;
+  min-height: 100vh;
   font-family: var(--font-prose);
 }
 
-/* O Loader vai desaparecer se esta classe for adicionada */
-html.skip-loader #boot-loader {
-  display: none !important;
+/* --- Controle do Boot Loader (Fade out elegante) --- */
+#boot-loader {
+  opacity: 1;
+  transition: opacity 250ms ease, visibility 250ms ease;
+}
+
+/* A classe boot-complete é adicionada via JS após o timeout */
+html.skip-loader #boot-loader,
+html.boot-complete #boot-loader {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }

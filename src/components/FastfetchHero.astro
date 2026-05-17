@@ -19,6 +19,7 @@ import AsciiFace from './AsciiFace.astro';
       <span class="color-block c1"></span><span class="color-block c2"></span>
       <span class="color-block c3"></span><span class="color-block c4"></span>
       <span class="color-block c5"></span><span class="color-block c6"></span>
+      <span class="color-block c7"></span><span class="color-block c8"></span>
     </div>
   </div>
 </section>
@@ -38,15 +39,26 @@ import AsciiFace from './AsciiFace.astro';
     }
   }
 
+  .ascii-column {
+    overflow-x: auto; /* Protege contra telas mobile muito finas */
+  }
+
   .user, .host { color: var(--accent-green); font-weight: bold; font-size: 1.2rem; }
   .at { color: var(--text-main); font-size: 1.2rem; }
-  .separator { color: var(--text-muted); margin: 0.5rem 0; letter-spacing: -1px; }
+  .separator { color: var(--text-muted); margin: 0.5rem 0; } /* Removido letter-spacing */
   .label { color: var(--accent-green); font-weight: bold; margin-right: 0.5rem; }
   p { margin: 0.3rem 0; }
 
   .colors { margin-top: 1rem; display: flex; gap: 6px; }
   .color-block { width: 18px; height: 18px; display: inline-block; border-radius: 2px; }
-  /* Cores estilo Catppuccin para os bloquinhos */
-  .c1 { background: #45475a; } .c2 { background: #f38ba8; } .c3 { background: #a6e3a1; }
-  .c4 { background: #f9e2af; } .c5 { background: #89b4fa; } .c6 { background: #cba6f7; }
+
+  /* Cores TTY puras */
+  .c1 { background: #000000; border: 1px solid #333; } /* Black */
+  .c2 { background: #ff5555; } /* Red */
+  .c3 { background: #50fa7b; } /* Green */
+  .c4 { background: #f1fa8c; } /* Yellow */
+  .c5 { background: #bd93f9; } /* Blue/Purple */
+  .c6 { background: #ff79c6; } /* Magenta */
+  .c7 { background: #8be9fd; } /* Cyan */
+  .c8 { background: #f8f8f2; } /* White */
 </style>
