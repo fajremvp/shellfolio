@@ -26,16 +26,19 @@
 <style>
   .fixed-fullscreen {
     position: fixed; inset: 0; background: var(--bg-crust); z-index: 9999;
-    display: flex; flex-direction: column; padding: 2rem;
+    /* Removido o padding e o alinhamento central */
+    padding: 4px 8px;
   }
+
   .tui-text { font-family: var(--font-tui); color: var(--text-muted); }
   .green { color: var(--accent-green); font-weight: bold; }
 
-  /* Cada linha começa invisível e aparece de soco (step-end) */
   .log-line {
     opacity: 0;
     animation: popIn 0.1s step-end forwards;
-    margin-bottom: 0.2rem;
+    /* Reduzido o margin-bottom para simular o line-height denso do console */
+    margin-bottom: 0px;
+    line-height: 1.2;
   }
 
   @keyframes popIn {
