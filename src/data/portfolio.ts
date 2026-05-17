@@ -3,8 +3,10 @@
 // Links e dados que são iguais em qualquer idioma
 export const contactLinks = [
   { protocol: "mailto", handle: "joao.fogaca@tuta.io", url: "mailto:joao.fogaca@tuta.io" },
-  { protocol: "nostr", handle: "npub1...", url: "nostr:npub1..." }, // Coloque sua npub real aqui
-  { protocol: "linkedin", handle: "in/joaovitorfogaca", url: "https://linkedin.com/in/joaovitorfogaca" }
+  { protocol: "linkedin", handle: "in/joaovfdo", url: "https://www.linkedin.com/in/joaovfdo/" },
+  { protocol: "youtube", handle: "@fajremvp", url: "https://www.youtube.com/@fajremvp" },
+  { protocol: "reddit", handle: "u/FajreMVP", url: "https://www.reddit.com/user/FajreMVP" },
+  { protocol: "nostr", handle: "npub1dykmduj9qepw44zcwqah0wvxftzvd0escfrqqrxjhawd8c8mzagqgxfysu" }
 ];
 
 export const paymentMethods = [

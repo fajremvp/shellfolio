@@ -109,9 +109,12 @@ const t = data[lang as keyof typeof data];
       <Prompt cmd="git remote -v" />
       <div class="tui-list">
         {t.remotes.map((remote) => (
-           <div class="list-item">
-             <span class="file" style="min-width: 80px;">{remote.name}</span>
-             <a href={remote.webLink} target="_blank" class="hover-link text-muted">{remote.url} (fetch)</a>
+           <div class="list-item" style="align-items: flex-start;">
+             <span class="file" style="flex: 0 0 10ch; color: var(--text-main); font-family: var(--font-tui);">{remote.name}</span>
+
+             <a href={remote.webLink} target="_blank" class="hover-link" style="color: var(--text-muted); font-family: var(--font-prose); font-size: 1.15rem; word-break: break-all;">
+               {remote.url} (fetch)
+             </a>
            </div>
         ))}
       </div>
@@ -121,9 +124,12 @@ const t = data[lang as keyof typeof data];
       <Prompt cmd="ping -c 3 contact.fajre" />
       <div class="tui-list">
         {contactLinks.map((contact) => (
-           <div class="list-item">
-             <span class="file" style="min-width: 80px;">{contact.protocol}</span>
-             <a href={contact.url} target="_blank" class="hover-link text-muted">{contact.handle}</a>
+           <div class="list-item" style="align-items: flex-start;">
+             <span class="file" style="flex: 0 0 10ch; color: var(--text-main); font-family: var(--font-tui);">{contact.protocol}</span>
+
+             <a href={contact.url} target="_blank" class="hover-link" style="color: var(--text-muted); font-family: var(--font-prose); font-size: 1.15rem; word-break: break-all;">
+               {contact.handle}
+             </a>
            </div>
         ))}
       </div>
@@ -145,20 +151,20 @@ const t = data[lang as keyof typeof data];
     <section>
       <Prompt cmd="locale -a" />
       <div class="tui-list">
-        <div class="list-item">
-          <span class="file" style="min-width: 100px;">en_US.utf8</span>
+        <div class="list-item" style="align-items: flex-start;">
+          <span class="file" style="flex: 0 0 12ch; color: var(--text-main); font-family: var(--font-tui);">en_US.utf8</span>
           {lang === 'en' ? (
-            <span class="file" style="color: var(--accent-amber); font-weight: bold;">{t.ui.langEn}</span>
+            <span style="color: var(--text-main); font-family: var(--font-prose); font-size: 1.15rem; font-weight: bold;">{t.ui.langEn}</span>
           ) : (
-            <a href="/en" class="hover-link text-muted">{t.ui.langEn}</a>
+            <a href="/en" class="hover-link" style="color: var(--text-muted); font-family: var(--font-prose); font-size: 1.15rem;">{t.ui.langEn}</a>
           )}
         </div>
-        <div class="list-item">
-          <span class="file" style="min-width: 100px;">pt_BR.utf8</span>
+        <div class="list-item" style="align-items: flex-start;">
+          <span class="file" style="flex: 0 0 12ch; color: var(--text-main); font-family: var(--font-tui);">pt_BR.utf8</span>
           {lang === 'pt' ? (
-            <span class="file" style="color: var(--accent-amber); font-weight: bold;">{t.ui.langPt}</span>
+            <span style="color: var(--text-main); font-family: var(--font-prose); font-size: 1.15rem; font-weight: bold;">{t.ui.langPt}</span>
           ) : (
-            <a href="/pt" class="hover-link text-muted">{t.ui.langPt}</a>
+            <a href="/pt" class="hover-link" style="color: var(--text-muted); font-family: var(--font-prose); font-size: 1.15rem;">{t.ui.langPt}</a>
           )}
         </div>
       </div>
