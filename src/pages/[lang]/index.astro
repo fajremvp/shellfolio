@@ -1,0 +1,185 @@
+---
+// src/pages/[lang]/index.astro
+import Layout from '../../layouts/Layout.astro';
+import BootLoader from '../../components/BootLoader.astro';
+import FastfetchHero from '../../components/FastfetchHero.astro';
+import Prompt from '../../components/Prompt.astro';
+import { data } from '../../data/portfolio';
+import { data, contactLinks, paymentMethods } from '../../data/portfolio';
+import QrModal from '../../components/QrModal.astro'; // Importe o Modal
+
+// O Astro vai compilar isso em /pt/index.html e /en/index.html
+export function getStaticPaths() {
+  return [
+    { params: { lang: 'pt' } },
+    { params: { lang: 'en' } },
+  ];
+}
+
+const { lang } = Astro.params;
+const t = data[lang as keyof typeof data];
+---
+<Layout title="fajre@portfolio:~">
+  <BootLoader />
+  <main class="container">
+
+    <FastfetchHero profile={t.profile} />
+
+    <section>
+      <Prompt cmd="cat AboutMe.txt" />
+      <article class="prose">
+        <p>{t.profile.about}</p>
+      </article>
+    </section>
+
+    <section>
+      <Prompt cmd="cat /etc/infrastructure.conf" />
+      <div class="tui-list">
+        {t.skills.map((skill) => (
+          <div class="list-item">
+            <span class="folder" style="min-width: 140px;">[{skill.category}]</span>
+            <span class="file">{skill.items}</span>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section>
+      <Prompt cmd="ls -l Experiences/" />
+      <div class="tui-list">
+        {t.experiences.map((exp) => (
+          <details class="tui-details">
+            <summary class="list-item">
+              <span class="indicator"></span>
+              <span class="perms">{exp.perms}</span>
+              <span class="date">{exp.date}</span>
+              <span class="file">{exp.company}</span>
+              <span class="text-muted">({exp.format})</span>
+              <span class="folder">{exp.folder}</span>
+            </summary>
+            <div class="expanded-content prose">
+              <p>{exp.content}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <section>
+      <Prompt cmd="ls -l Projects/" />
+      <div class="tui-list">
+        {t.projects.map((proj) => (
+          <details class="tui-details">
+            <summary class="list-item">
+              <span class="indicator"></span>
+              <span class="perms">{proj.perms}</span>
+              <span class="file">{proj.file}</span>
+            </summary>
+            <div class="expanded-content prose">
+              <p>{proj.content}</p>
+              <p>>> <a href={proj.link} target="_blank" class="hover-link">{t.ui.repoLink}</a></p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <section>
+      <Prompt cmd="ls -l /var/log/education/" />
+      <div class="tui-list">
+        {t.education.map((edu) => (
+          <details class="tui-details">
+            <summary class="list-item">
+              <span class="indicator"></span>
+              <span class="perms">{edu.perms}</span>
+              <span class="date">{edu.date}</span>
+              <span class="file">{edu.institution}</span>
+              <span class="text-muted">({edu.format})</span>
+              <span class="folder">{edu.folder}</span>
+            </summary>
+            <div class="expanded-content prose">
+              <p>{edu.content}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <section>
+      <Prompt cmd="git remote -v" />
+      <div class="tui-list">
+        {t.remotes.map((remote) => (
+           <div class="list-item">
+             <span class="file" style="min-width: 80px;">{remote.name}</span>
+             <a href={remote.webLink} target="_blank" class="hover-link text-muted">{remote.url} (fetch)</a>
+           </div>
+        ))}
+      </div>
+    </section>
+
+    <section>
+      <Prompt cmd="ping -c 3 contact.fajre" />
+      <div class="tui-list">
+        {contactLinks.map((contact) => (
+           <div class="list-item">
+             <span class="file" style="min-width: 80px;">{contact.protocol}</span>
+             <a href={contact.url} target="_blank" class="hover-link text-muted">{contact.handle}</a>
+           </div>
+        ))}
+      </div>
+    </section>
+
+    <section>
+      <Prompt cmd="cat /etc/payments.conf" />
+      <div class="tui-list">
+        {paymentMethods.map((payment) => (
+           <div class="list-item" style="align-items: center;">
+             <span class="folder" style="min-width: 80px;">{payment.coin}</span>
+             <QrModal id={`modal-${payment.coin.toLowerCase()}`} title={`Donate ${payment.coin}`} qrImage={payment.qr} />
+             <span class="text-muted" style="font-size: 0.75rem; word-break: break-all;">{payment.address}</span>
+           </div>
+        ))}
+      </div>
+    </section>
+
+    <section>
+      <Prompt cmd="locale -a" />
+      <div class="tui-list">
+        <div class="list-item">
+          <a href={t.ui.switchLangTarget} class="hover-link text-muted">{t.ui.switchLangText}</a>
+        </div>
+      </div>
+    </section>
+
+    <div style="margin-top: 4rem; margin-bottom: 2rem;">
+       <Prompt cmd="" />
+       <div style="display: flex; align-items: center; margin-top: -2.3rem; margin-left: 10.6rem;">
+         <span style="display:inline-block; width:8px; height:1.2rem; background:var(--text-main); animation: blink 1s step-end infinite;"></span>
+       </div>
+    </div>
+
+  </main>
+</Layout>
+
+<style>
+/* ... COLE TODO O CONTEÚDO DO <style> DA SUA PÁGINA ANTERIOR AQUI EXATAMENTE COMO ESTAVA ... */
+/* Ex: .container { ... } .prose { ... } etc. */
+  .container { width: 100%; padding: 4px 8px; padding-bottom: 5rem; }
+  .prose { font-family: var(--font-prose); color: var(--text-muted); width: 100%; font-size: 1.15rem; line-height: 1.6; word-wrap: break-word; overflow-wrap: break-word; }
+  .prose p { margin-bottom: 1.2rem; }
+  .tui-list { font-family: var(--font-tui); display: flex; flex-direction: column; gap: 0.8rem; font-size: 0.85rem; }
+  .list-item { display: flex; gap: 1.5rem; color: var(--text-muted); line-height: 1.4; }
+  .tui-details { & summary::-webkit-details-marker { display: none; } }
+  .tui-details summary { list-style: none; cursor: pointer; user-select: none; transition: opacity 0.2s; }
+  .tui-details summary:hover { opacity: 0.8; }
+  .indicator::before { content: '[+]'; color: var(--text-muted); margin-right: 0.5rem; font-family: var(--font-tui); }
+  .tui-details[open] .indicator::before { content: '[-]'; color: var(--accent-amber); }
+  .expanded-content { padding-left: 3rem; margin-top: 0.8rem; margin-bottom: 1.5rem; border-left: 1px dashed var(--text-muted); margin-left: 1rem; }
+  .hover-link { text-decoration: none; }
+  .hover-link:hover { text-decoration: underline; color: var(--accent-amber); }
+  .perms { color: var(--text-main); }
+  .folder { color: var(--accent-green); font-weight: bold; }
+  .file { color: var(--text-main); }
+  @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+  @media (max-width: 600px) { .list-item { gap: 0.8rem; font-size: 0.9rem; } }
+</style>

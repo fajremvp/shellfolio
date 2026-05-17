@@ -1,225 +1,34 @@
 ---
 // src/pages/index.astro
-import Layout from '../layouts/Layout.astro';
-import BootLoader from '../components/BootLoader.astro';
-import FastfetchHero from '../components/FastfetchHero.astro';
-import Prompt from '../components/Prompt.astro';
-import { profile, skills, experiences, projects, education, remotes } from '../data/portfolio';
+// Este arquivo existe APENAS para redirecionar o visitante
 ---
-<Layout title="fajre@portfolio:~">
-  <BootLoader />
-  <main class="container">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>fajre@portfolio:~</title>
+  <style>
+    /* Estilo mínimo só pra tela não ficar branca durante os milissegundos do redirect */
+    body { background-color: #000000; color: #4af626; font-family: monospace; padding: 1rem; }
+  </style>
+</head>
+<body>
+  <p>Booting OS...</p>
 
-    <FastfetchHero />
+  <script is:inline>
+    // Detecta idioma. navigator.language é o padrão moderno. fallback pro userLanguage do IE (legado).
+    const userLang = navigator.language || navigator.userLanguage;
 
-    <section>
-      <Prompt cmd="cat AboutMe.txt" />
-      <article class="prose">
-        <p>{profile.about}</p>
-      </article>
-    </section>
+    // Pega as primeiras duas letras (ex: "pt-BR" -> "pt")
+    const baseLang = userLang.toLowerCase().substring(0, 2);
 
-    <section>
-      <Prompt cmd="cat /etc/infrastructure.conf" />
-      <div class="tui-list">
-        {skills.map((skill) => (
-          <div class="list-item">
-            <span class="folder" style="min-width: 140px;">[{skill.category}]</span>
-            <span class="file">{skill.items}</span>
-          </div>
-        ))}
-      </div>
-    </section>
-
-    <section>
-      <Prompt cmd="ls -l Experiences/" />
-      <div class="tui-list">
-        {experiences.map((exp) => (
-          <details class="tui-details">
-            <summary class="list-item">
-              <span class="indicator"></span>
-              <span class="perms">{exp.perms}</span>
-              <span class="date">{exp.date}</span>
-              <span class="file">{exp.company}</span>
-              <span class="text-muted">({exp.format})</span>
-              <span class="folder">{exp.folder}</span>
-            </summary>
-            <div class="expanded-content prose">
-              <p>{exp.content}</p>
-            </div>
-          </details>
-        ))}
-      </div>
-    </section>
-
-    <section>
-      <Prompt cmd="ls -l Projects/" />
-      <div class="tui-list">
-        {projects.map((proj) => (
-          <details class="tui-details">
-            <summary class="list-item">
-              <span class="indicator"></span>
-              <span class="perms">{proj.perms}</span>
-              <span class="file">{proj.file}</span>
-            </summary>
-            <div class="expanded-content prose">
-              <p>{proj.content}</p>
-              <p>>> <a href={proj.link} target="_blank" class="hover-link">Link do Repositório</a></p>
-            </div>
-          </details>
-        ))}
-      </div>
-    </section>
-
-    <section>
-      <Prompt cmd="ls -l /var/log/education/" />
-      <div class="tui-list">
-        {education.map((edu) => (
-          <details class="tui-details">
-            <summary class="list-item">
-              <span class="indicator"></span>
-              <span class="perms">{edu.perms}</span>
-              <span class="date">{edu.date}</span>
-              <span class="file">{edu.institution}</span>
-              <span class="text-muted">({edu.format})</span> <span class="folder">{edu.folder}</span>
-            </summary>
-            <div class="expanded-content prose">
-              <p>{edu.content}</p>
-            </div>
-          </details>
-        ))}
-      </div>
-    </section>
-
-    <section>
-      <Prompt cmd="git remote -v" />
-      <div class="tui-list">
-        {remotes.map((remote) => (
-           <div class="list-item">
-             <span class="file" style="min-width: 80px;">{remote.name}</span>
-             <a href={remote.webLink} target="_blank" class="hover-link text-muted">{remote.url} (fetch)</a>
-           </div>
-        ))}
-      </div>
-    </section>
-
-    <section>
-      <Prompt cmd="ping -c 3 contact.fajre" />
-      <article class="prose">
-        <p>[... Informações de contato (Email, Nostr, SimpleX) virão aqui ...]</p>
-      </article>
-    </section>
-
-    <section>
-      <Prompt cmd="cat /etc/payments.conf" />
-      <article class="prose">
-        <p>[... Botões/Links que abrirão os QR Codes (BTC, XMR, Pix) virão aqui ...]</p>
-      </article>
-    </section>
-
-    <div style="margin-top: 4rem; margin-bottom: 2rem;">
-       <Prompt cmd="" />
-       <div style="display: flex; align-items: center; margin-top: -2.3rem; margin-left: 10.6rem;">
-         <span style="display:inline-block; width:8px; height:1.2rem; background:var(--text-main); animation: blink 1s step-end infinite;"></span>
-       </div>
-    </div>
-
-  </main>
-  </Layout>
-
-<style>
-  .container {
-    width: 100%;
-    padding: 4px 8px;
-    padding-bottom: 5rem; /* Espaço para rolar no final da página */
-  }
-  .prose {
-    font-family: var(--font-prose);
-    color: var(--text-muted);
-    width: 100%; /* Força o texto a usar todo o espaço disponível */
-    font-size: 1.15rem;
-    line-height: 1.6;
-    /* Garante que palavras muito longas não vazem a tela */
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-  }
-  .prose p {
-    margin-bottom: 1.2rem;
-  }
-
-  .tui-list {
-    font-family: var(--font-tui);
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-    font-size: 0.85rem;
-  }
-  .list-item {
-    display: flex;
-    gap: 1.5rem;
-    color: var(--text-muted);
-    line-height: 1.4;
-  }
-
-  /* --- Estilos para o Expansor Nativo (<details>) --- */
-  .tui-details {
-    /* Remove o triângulo padrão do navegador no Safari/Chrome */
-    & summary::-webkit-details-marker { display: none; }
-  }
-
-  .tui-details summary {
-    list-style: none; /* Remove o triângulo padrão no Firefox */
-    cursor: pointer;
-    user-select: none;
-    transition: opacity 0.2s;
-  }
-
-  .tui-details summary:hover {
-    opacity: 0.8; /* Feedback visual leve ao passar o mouse */
-  }
-
-  /* Indicador [+] e [-] feito 100% com CSS */
-  .indicator::before {
-    content: '[+]';
-    color: var(--text-muted);
-    margin-right: 0.5rem;
-    font-family: var(--font-tui);
-  }
-
-  .tui-details[open] .indicator::before {
-    content: '[-]';
-    color: var(--accent-amber); /* Fica laranjinha quando aberto */
-  }
-
-  .expanded-content {
-    /* Identação visual imitando o output de um comando filho */
-    padding-left: 3rem;
-    margin-top: 0.8rem;
-    margin-bottom: 1.5rem;
-    border-left: 1px dashed var(--text-muted);
-    margin-left: 1rem;
-  }
-
-  /* Link de projeto com hover estilo TUI */
-  .hover-link {
-    text-decoration: none;
-  }
-  .hover-link:hover {
-    text-decoration: underline;
-    color: var(--accent-amber);
-  }
-
-  .perms { color: var(--text-main); }
-  .folder { color: var(--accent-green); font-weight: bold; } /* Diretórios em verde */
-  .file { color: var(--text-main); } /* Arquivos em branco/cinza */
-
-  /* Animação do cursor no final da página */
-  @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
-  }
-
-  @media (max-width: 600px) {
-    .list-item { gap: 0.8rem; font-size: 0.9rem; }
-  }
-</style>
+    // Redireciona imediatamente sem deixar rastro no histórico do botão "Voltar" do navegador
+    if (baseLang === 'pt') {
+      window.location.replace('/pt');
+    } else {
+      window.location.replace('/en');
+    }
+  </script>
+</body>
+</html>
