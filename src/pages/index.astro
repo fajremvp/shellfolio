@@ -4,7 +4,7 @@ import Layout from '../layouts/Layout.astro';
 import BootLoader from '../components/BootLoader.astro';
 import FastfetchHero from '../components/FastfetchHero.astro';
 import Prompt from '../components/Prompt.astro';
-import { experiences, projects } from '../data/portfolio';
+import { profile, skills, experiences, projects, education } from '../data/portfolio';
 ---
 <Layout title="fajre@portfolio:~">
   <BootLoader />
@@ -16,21 +16,20 @@ import { experiences, projects } from '../data/portfolio';
     <section>
       <Prompt cmd="cat AboutMe.txt" />
       <article class="prose">
-        <p>
-          Olá. Sou um desenvolvedor focado em ecossistemas Linux, privacidade e código aberto.
-          Minha stack principal orbita em torno de tecnologias estáticas, sistemas minimalistas e interfaces que respeitam o usuário.
-        </p>
-        <p>
-          Quando não estou otimizando dotfiles no NixOS, estou construindo soluções em TypeScript ou navegando no Nostr.
-        </p>
+        <p>{profile.about}</p>
       </article>
     </section>
 
     <section>
-      <Prompt cmd="neofetch --packages" />
-      <article class="prose">
-        <p>[... Conteúdo da Stack (Linguagens, Frameworks, Ferramentas) virá aqui ...]</p>
-      </article>
+      <Prompt cmd="cat /etc/infrastructure.conf" />
+      <div class="tui-list">
+        {skills.map((skill) => (
+          <div class="list-item">
+            <span class="folder" style="min-width: 140px;">[{skill.category}]</span>
+            <span class="file">{skill.items}</span>
+          </div>
+        ))}
+      </div>
     </section>
 
     <section>
@@ -72,20 +71,32 @@ import { experiences, projects } from '../data/portfolio';
     </section>
 
     <section>
-      <Prompt cmd="history | grep 'education'" />
-      <article class="prose">
-        <p>[... Conteúdo de Educação/Cursos virá aqui ...]</p>
-      </article>
+      <Prompt cmd="ls -l /var/log/education/" />
+      <div class="tui-list">
+        {education.map((edu) => (
+          <details class="tui-details">
+            <summary class="list-item">
+              <span class="indicator"></span>
+              <span class="perms">{edu.perms}</span>
+              <span class="date">{edu.date}</span>
+              <span class="folder">{edu.folder}</span>
+            </summary>
+            <div class="expanded-content prose">
+              <p>{edu.content}</p>
+            </div>
+          </details>
+        ))}
+      </div>
     </section>
 
     <section>
       <Prompt cmd="git remote -v" />
       <div class="tui-list">
         <div class="list-item">
-          <span class="file">github</span> <span class="text-muted">git@github.com:seu-user/repo.git (fetch)</span>
+          <span class="file">github</span> <span class="text-muted">git@github.com:fajremvp/repo.git (fetch)</span>
         </div>
         <div class="list-item">
-          <span class="file">codeberg</span> <span class="text-muted">git@codeberg.org:seu-user/repo.git (fetch)</span>
+          <span class="file">codeberg</span> <span class="text-muted">git@codeberg.org:fajre/repo.git (fetch)</span>
         </div>
       </div>
     </section>
@@ -118,12 +129,15 @@ import { experiences, projects } from '../data/portfolio';
     padding: 4px 8px;
     padding-bottom: 5rem; /* Espaço para rolar no final da página */
   }
-
   .prose {
+    font-family: var(--font-prose);
     color: var(--text-muted);
-    max-width: 65ch;
-    font-size: 0.9rem;
-    line-height: 1.8;
+    width: 100%; /* Força o texto a usar todo o espaço disponível */
+    font-size: 1.15rem;
+    line-height: 1.6;
+    /* Garante que palavras muito longas não vazem a tela */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
   .prose p {
     margin-bottom: 1.2rem;

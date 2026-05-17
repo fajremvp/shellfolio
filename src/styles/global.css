@@ -52,3 +52,33 @@ html.boot-complete #boot-loader {
   visibility: hidden;
   pointer-events: none;
 }
+
+/* --- Acessibilidade TTY --- */
+
+/* Foco visível estilo cursor de terminal (cores invertidas) */
+:focus-visible {
+  outline: none;
+  background-color: var(--accent-green);
+  color: var(--bg-crust);
+}
+
+.tui-details summary:focus-visible {
+  background-color: var(--text-muted);
+  color: var(--bg-base);
+}
+
+.hover-link:focus-visible {
+  background-color: var(--accent-amber);
+  color: var(--bg-crust);
+  text-decoration: none;
+}
+
+/* Proteção para Motion Sensitivity */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
