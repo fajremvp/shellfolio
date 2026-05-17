@@ -67,8 +67,8 @@ export const data = {
     ],
     ui: {
       repoLink: "Link do Repositório",
-      switchLangText: "[ Switch to English ]",
-      switchLangTarget: "/en"
+      langEn: "[ Inglês ]",
+      langPt: "[ Português ]"
     }
   },
   en: {
@@ -123,8 +123,8 @@ export const data = {
     ],
     ui: {
       repoLink: "Repository Link",
-      switchLangText: "[ Mudar para Português ]",
-      switchLangTarget: "/pt"
+      langEn: "[ English ]",
+      langPt: "[ Portuguese ]"
     }
   }
 };

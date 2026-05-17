@@ -34,7 +34,7 @@ const t = data[lang as keyof typeof data];
 
     <section>
       <Prompt cmd="cat /etc/infrastructure.conf" />
-      <div class="tui-list">
+      <div class="tui-list prose-list">
         {t.skills.map((skill) => (
           <div class="list-item">
             <span class="folder" style="min-width: 140px;">[{skill.category}]</span>
@@ -146,7 +146,12 @@ const t = data[lang as keyof typeof data];
       <Prompt cmd="locale -a" />
       <div class="tui-list">
         <div class="list-item">
-          <a href={t.ui.switchLangTarget} class="hover-link text-muted">{t.ui.switchLangText}</a>
+          <span class="file" style="min-width: 100px;">en_US.utf8</span>
+          <a href="/en" class="hover-link text-muted">{t.ui.langEn}</a>
+        </div>
+        <div class="list-item">
+          <span class="file" style="min-width: 100px;">pt_BR.utf8</span>
+          <a href="/pt" class="hover-link text-muted">{t.ui.langPt}</a>
         </div>
       </div>
     </section>
@@ -168,6 +173,11 @@ const t = data[lang as keyof typeof data];
   .prose { font-family: var(--font-prose); color: var(--text-muted); width: 100%; font-size: 1.15rem; line-height: 1.6; word-wrap: break-word; overflow-wrap: break-word; }
   .prose p { margin-bottom: 1.2rem; }
   .tui-list { font-family: var(--font-tui); display: flex; flex-direction: column; gap: 0.8rem; font-size: 0.85rem; }
+  .prose-list {
+    font-family: var(--font-prose);
+    font-size: 1.15rem; /* Iguala ao tamanho do AboutMe */
+    line-height: 1.6;
+  }
   .list-item { display: flex; gap: 1.5rem; color: var(--text-muted); line-height: 1.4; }
   .tui-details { & summary::-webkit-details-marker { display: none; } }
   .tui-details summary { list-style: none; cursor: pointer; user-select: none; transition: opacity 0.2s; }
