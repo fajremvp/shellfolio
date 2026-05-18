@@ -26,26 +26,14 @@ const t = data[lang as keyof typeof data];
     <FastfetchHero profile={t.profile} />
 
     <section>
-      <Prompt cmd="cat AboutMe.txt" />
+      <Prompt cmd="cat ~/README.md" />
       <div class="prose">
         {t.profile.about}
       </div>
     </section>
 
     <section>
-      <Prompt cmd="cat /etc/infrastructure.conf" />
-      <div class="tui-list prose-list">
-        {t.skills.map((skill) => (
-          <div class="list-item" style="align-items: flex-start;">
-            <span class="folder" style="flex: 0 0 39ch;">[{skill.category}]</span>
-            <span class="file">{skill.items}</span>
-          </div>
-        ))}
-      </div>
-    </section>
-
-    <section>
-      <Prompt cmd="ls -l Experiences/" />
+      <Prompt cmd="ls -l ~/Experiences/" />
       <div class="tui-list">
         {t.experiences.map((exp) => (
           <details class="tui-details">
@@ -66,7 +54,7 @@ const t = data[lang as keyof typeof data];
     </section>
 
     <section>
-      <Prompt cmd="ls -l Projects/" />
+      <Prompt cmd="ls -l ~/Projects/" />
       <div class="tui-list">
         {t.projects.map((proj) => (
           <details class="tui-details">
@@ -86,7 +74,7 @@ const t = data[lang as keyof typeof data];
     </section>
 
     <section>
-      <Prompt cmd="ls -l /var/log/education/" />
+      <Prompt cmd="ls -l ~/Education/" />
       <div class="tui-list">
         {t.education.map((edu) => (
           <details class="tui-details">
@@ -107,6 +95,18 @@ const t = data[lang as keyof typeof data];
     </section>
 
     <section>
+      <Prompt cmd="cat /etc/stack.conf" />
+      <div class="tui-list prose-list">
+        {t.skills.map((skill) => (
+          <div class="list-item" style="align-items: flex-start;">
+            <span class="folder" style="flex: 0 0 39ch;">[{skill.category}]</span>
+            <span class="file">{skill.items}</span>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section>
       <Prompt cmd="git remote -v" />
       <div class="tui-list">
         {t.remotes.map((remote) => (
@@ -122,7 +122,7 @@ const t = data[lang as keyof typeof data];
     </section>
 
     <section>
-      <Prompt cmd="ping -c 3 contact.fajre" />
+      <Prompt cmd="curl https://contact.fajre" />
       <div class="tui-list">
         {contactLinks.map((contact) => (
            <div class="list-item" style="align-items: flex-start;">
@@ -137,7 +137,7 @@ const t = data[lang as keyof typeof data];
     </section>
 
     <section>
-      <Prompt cmd="cat /etc/payments.conf" />
+      <Prompt cmd="cat ~/.wallets.conf" />
       <div class="tui-list">
         {paymentMethods.map((payment) => (
            <div class="list-item" style="align-items: center;">
@@ -176,7 +176,7 @@ const t = data[lang as keyof typeof data];
     </div>
 
   </main>
-</Layout>
+  </Layout>
 
 <style>
   .container { width: 100%; padding: 1rem 8px; }
