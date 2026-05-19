@@ -10,11 +10,11 @@ export const contactLinks = [
 ];
 
 export const paymentMethods = [
-  { coin: "BTC", address: "bc1q...", qr: "/assets/qr-btc.webp" }, // Lembre-se de colocar as imagens na pasta public/assets/
-  { coin: "XMR", address: "8A...", qr: "/assets/qr-xmr.webp" }
+  { name: "BTC", address: "bc1qfv5qan7dpsaffwlxtm299wwxffgnkzq0eld06p", qr: "/assets/qr-btc.webp" },
+  { name: "Lightning", address: "fajre@blink.sv", qr: "/assets/qr-ln.webp" },
+  { name: "XMR", address: "85UMFQfR6AhUBV6ed5hP5b5E668yBU9KfKJGtQ1YkRf1NLSbNpoBrydBQaJuFcPo5LgainWyqkpr6ARTtob2KGnW6rN8jo8", qr: "/assets/qr-xmr.webp" },
+  { name: "Pix", address: "17ef428e-49d7-405e-9e90-fce5b8ee3ddf", qr: "/assets/qr-pix.webp" }
 ];
-
-// ... (agora desça até o bloco 'data' e atualize a chave 'ui' em pt e en) ...
 
 export const data = {
   pt: {
