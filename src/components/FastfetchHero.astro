@@ -6,10 +6,7 @@ import AsciiFace from './AsciiFace.astro';
 const { profile } = Astro.props;
 ---
 <section class="fastfetch-wrapper">
-  <div class="first-prompt">
-    <span class="prompt-text">fajre@shellfolio:~$</span> fastfetch
-  </div>
-
+  <div class="first-prompt"><span class="prompt-text">fajre@shellfolio:~$</span> fastfetch</div>
   <div class="fastfetch-container">
     <div class="ascii-column">
       <AsciiFace />
@@ -97,7 +94,6 @@ const { profile } = Astro.props;
   .label {
     color: var(--accent-green);
     font-weight: bold;
-    margin-right: 0.5rem;
   }
 
   p {

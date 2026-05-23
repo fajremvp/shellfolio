@@ -2,11 +2,7 @@
 // src/components/Prompt.astro
 const { cmd, showCursor } = Astro.props;
 ---
-<div class="prompt-line">
-  <span class="prompt-text">fajre@shellfolio:~$</span>
-  {cmd && <span class="cmd-text">{cmd}</span>}
-  {showCursor && <span class="cursor"></span>}
-</div>
+<div class="prompt-line"><span class="prompt-text">fajre@shellfolio:~$</span> {cmd && <span class="cmd-text">{cmd}</span>}{showCursor && <span class="cursor"></span>}</div>
 
 <style>
   .prompt-line {
@@ -24,7 +20,6 @@ const { cmd, showCursor } = Astro.props;
 
   .cmd-text {
     color: #ffffff;
-    margin-left: 0.5rem; /* Espaço natural entre o $ e o comando */
   }
 </style>
 

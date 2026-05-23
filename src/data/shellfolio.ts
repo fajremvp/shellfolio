@@ -2,7 +2,7 @@
 
 // Links e dados que são iguais em qualquer idioma
 export const contactLinks = [
-  { protocol: "mailto", handle: "joao.fogaca@tuta.io", url: "mailto:joao.fogaca@tuta.io" },
+  { protocol: "mailto", handle: "fajre.eastcoast399@aleeas.com", url: "mailto:fajre.eastcoast399@aleeas.com" },
   { protocol: "linkedin", handle: "in/joaovfdo", url: "https://www.linkedin.com/in/joaovfdo/" },
   { protocol: "youtube", handle: "@fajremvp", url: "https://www.youtube.com/@fajremvp" },
   { protocol: "reddit", handle: "u/FajreMVP", url: "https://www.reddit.com/user/FajreMVP" },
@@ -30,7 +30,9 @@ export const data = {
       Kernel: "Linux 6.18.26",
       Shell: "bash 5.3.9",
       WM: "niri 26.04 (Wayland)",
-      about: `Profissional de Infraestrutura e DevOps com mentalidade analítica, visão sistêmica de ambientes complexos e foco em Segurança Zero Trust e proteção de dados. Diferente do perfil acadêmico padrão, possuo experiência prática na arquitetura e operação de infraestruturas de nuvem privada, priorizando automação (IaC) e resiliência. Combino a base teórica de Engenharia de Software com capacidade de execução técnica para implementar ambientes auditáveis e seguros. Busco desafios que exijam autonomia, resolução de problemas estruturais e rigor técnico.`
+      about: `Engenheiro de Infraestrutura e DevOps, entusiasta de open-source e sistemas descentralizados.
+Interesses: Segurança, Privacidade, Linux, Self-Hosting, IA, Economia e Filosofia.
+"I use Nix, btw"`
     },
     skills: [
       { category: "Infraestrutura & Virtualização", items: "Proxmox VE, Docker, LXC, ZFS (RAID/Storage), LUKS2, Linux (Debian, Alpine, Arch, NixOS), Systemd (Custom Units), Kernel Tuning, Hardware Troubleshooting, Dropbear (Initramfs SSH), GRUB Rescue/Emergency Shell, Disk Passthrough, Storage Resilience (Fstab/UUID), NUT." },
@@ -55,7 +57,7 @@ export const data = {
 - Garantia de integridade e precisão em dados sensíveis sob exigência regulatória.`
       },
       {
-        perms: "drwxr-xr-x", date: "Dez/2025-Pres", company: "Projeto_Pessoal", format: "Remoto", folder: "Homelab",
+        perms: "drwxr-xr-x", date: "Dez/2025-Pres", company: "Homelab", format: "Remoto", folder: "Engenheiro de Infraestrutura e DevOps",
         content: "Arquitetura de Nuvem Privada (Proxmox, LUKS2, VLANs, OPNsense). Automação IaC via Ansible. Segurança Zero Trust (Vault, Authentik, CrowdSec). Observabilidade PLG e Disaster Recovery com cold boot e Restic."
       },
       {
@@ -106,7 +108,9 @@ export const data = {
       Kernel: "Linux 6.18.26",
       Shell: "bash 5.3.9",
       WM: "niri 26.04 (Wayland)",
-      about: `Infrastructure and DevOps professional with an analytical mindset, systemic view of complex environments, and a focus on Zero Trust Security and data protection. Unlike the standard academic profile, I possess practical experience in architecting and operating private cloud infrastructures, prioritizing automation (IaC) and resilience. I combine the theoretical foundation of Software Engineering with technical execution capability to implement auditable and secure environments. I seek challenges that demand autonomy, resolution of structural problems, and technical rigor.`
+      about: `Infrastructure and DevOps Engineer, passionate about open-source and decentralized systems.
+Interests: Security, Privacy, Linux, Self-Hosting, AI, Economics, and Philosophy.
+“I use Nix, btw.”`
     },
     skills: [
       { category: "Infrastructure & Virtualization", items: "Proxmox VE, Docker, LXC, ZFS (RAID/Storage), LUKS2, Linux (Debian, Alpine, Arch, NixOS), Systemd (Custom Units), Kernel Tuning, Hardware Troubleshooting, Dropbear (Initramfs SSH), GRUB Rescue/Emergency Shell, Disk Passthrough, Storage Resilience (Fstab/UUID), NUT." },
@@ -123,15 +127,15 @@ export const data = {
         company: "Honorato & Bini Advogados Associados",
         format: "Freelance/Hybrid",
         folder: "Data and Document Management Assistant",
-        content: `Temporary work processing and regularizing shooting club attendance records for integration with the SINARM system (Federal Police).
-- Digitization of physical documents and data normalization for automated import into systems.
-- Validation and correction of inconsistencies between physical and digital records in a high volume of critical data.
+        content: `Temporary work involving processing and standardization of shooting club records for integration with the SINARM system (Federal Police of Brazil).
+- Digitization of physical documents and data normalization for automated system import.
+- Validation and correction of inconsistencies between physical and digital records in large volumes of sensitive data.
 - Structuring data in spreadsheets (Excel/CSV) for system integration.
-- Partial automation of the digitization and data extraction flow using AI (OCR + LLM), increasing productivity in record migration and processing.
-- Guaranteeing integrity and accuracy in sensitive data under regulatory requirements.`
+- Partial automation of document digitization and data extraction workflows using AI (OCR + LLM), improving productivity in record migration and processing.
+- Ensuring integrity and accuracy of sensitive data under regulatory requirements.`
       },
       {
-        perms: "drwxr-xr-x", date: "Dez/2025-Pres", company: "Personal_Project", format: "Remote", folder: "Homelab",
+        perms: "drwxr-xr-x", date: "Dez/2025-Pres", company: "Homelab", format: "Remote", folder: "Infrastructure and DevOps Engineer",
         content: "Private Cloud Architecture (Proxmox, LUKS2, VLANs, OPNsense). IaC Automation via Ansible. Zero Trust Security (Vault, Authentik, CrowdSec). PLG Observability and Disaster Recovery with cold boot and Restic."
       },
       {
