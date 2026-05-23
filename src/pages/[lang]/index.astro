@@ -4,8 +4,7 @@ import Layout from '../../layouts/Layout.astro';
 import BootLoader from '../../components/BootLoader.astro';
 import FastfetchHero from '../../components/FastfetchHero.astro';
 import Prompt from '../../components/Prompt.astro';
-import { data } from '../../data/portfolio';
-import { data, contactLinks, paymentMethods } from '../../data/portfolio';
+import { data, contactLinks, paymentMethods } from '../../data/shellfolio';
 import QrModal from '../../components/QrModal.astro'; // Importe o Modal
 
 // O Astro vai compilar isso em /pt/index.html e /en/index.html
@@ -19,7 +18,7 @@ export function getStaticPaths() {
 const { lang } = Astro.params;
 const t = data[lang as keyof typeof data];
 ---
-<Layout title="fajre@portfolio:~">
+<Layout title="fajre@shellfolio:~">
   <BootLoader />
   <main class="container">
 
