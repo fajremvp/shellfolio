@@ -6,7 +6,8 @@ export const contactLinks = [
   { protocol: "linkedin", handle: "in/joaovfdo", url: "https://www.linkedin.com/in/joaovfdo/" },
   { protocol: "youtube", handle: "@fajremvp", url: "https://www.youtube.com/@fajremvp" },
   { protocol: "reddit", handle: "u/FajreMVP", url: "https://www.reddit.com/user/FajreMVP" },
-  { protocol: "nostr", handle: "npub1dykmduj9qepw44zcwqah0wvxftzvd0escfrqqrxjhawd8c8mzagqgxfysu" }
+  { protocol: "nostr", handle: "npub1dykmduj9qepw44zcwqah0wvxftzvd0escfrqqrxjhawd8c8mzagqgxfysu" },
+  { protocol: "simplex", handle: "SimpleX Chat", url: "https://smp14.simplex.im/a#2pZqGmH0Yx4ZUh4wELunW0rCeFjAf70b9LG57sOJPd0" }
 ];
 
 export const paymentMethods = [
