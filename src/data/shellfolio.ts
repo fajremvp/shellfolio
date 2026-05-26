@@ -10,7 +10,7 @@ export const contactLinks = [
   { protocol: "simplex", handle: "SimpleX Chat", url: "https://smp14.simplex.im/a#J67Nzetqn5zkzqu7UzZB1YJPl8Usxa-VJNqCg6oIi6o" }
 ];
 
-export const onionAddress = "address.onion";
+export const onionAddress = "4pxhc3ncqn22tbcp3ohvavuwhcggfrsbyshvqodlraayxudpzi6bvdyd.onion";
 
 export const paymentMethods = [
   { name: "BTC", address: "bc1qfv5qan7dpsaffwlxtm299wwxffgnkzq0eld06p", qr: "/assets/qr-btc.webp" },
