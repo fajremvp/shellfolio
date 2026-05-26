@@ -78,11 +78,11 @@ Interesses: Segurança, Privacidade, Linux, Auto-Hospedagem, IA, Economia e Filo
     ],
     projects: [
       {
-        perms: "-rw-r--r--", file: "nixos-config", link: "https://github.com/fajremvp/nixos-config",
+        perms: "drwxr-xr-x", file: "nixos-config", link: "https://github.com/fajremvp/nixos-config",
         content: `OS as Code. Configuração declarativa completa dos meus sistemas operacionais (NixOS) e ambientes de usuário, gerenciados inteiramente via Nix Flakes e Home Manager. Aplica a filosofia de Infraestrutura como Código (IaC) direto no desktop, garantindo reprodutibilidade instantânea em hardware novo, imutabilidade, rollbacks à prova de falhas pelo GRUB e um Single Source of Truth (SSOT) para toda a minha rede, serviços, drivers e dotfiles.`
       },
       {
-        perms: "-rw-r--r--", file: "shellfolio", link: "https://github.com/fajremvp/shellfolio",
+        perms: "drwxr-xr-x", file: "shellfolio", link: "https://github.com/fajremvp/shellfolio",
         content: `Template do meu portfólio minimalista construído com Astro.js, focado em alta performance e estética TUI (Terminal User Interface). Ele simula um ambiente de terminal Unix realista no navegador, incluindo uma sequência de boot dinâmica inspirada no systemd, sintaxe highlight de logs e renderização tipográfica fiel para desenvolvedores, sysadmins e entusiastas Linux que buscam uma identidade visual nostálgica e autêntica.`
       },
       {
@@ -90,11 +90,11 @@ Interesses: Segurança, Privacidade, Linux, Auto-Hospedagem, IA, Economia e Filo
         content: "Criei um launcher de aplicações minimalista em Bash para gerenciadores de janelas de tiling dinâmico (Hyprland/Niri/Wayland). Integrei o fzf para busca fuzzy de alta performance via terminal, evitando janelas flutuantes e a sobrecarga de interfaces gráficas."
       },
       {
-        perms: "-rw-r--r--", file: "dotfiles", link: "https://github.com/fajremvp/dotfiles",
+        perms: "lrwxrwxrwx", file: "dotfiles", link: "https://github.com/fajremvp/dotfiles",
         content: "Mantenho a automação e gestão do meu ambiente de desenvolvimento Linux com configurações próprias, usando Chezmoi e Git para garantir versionamento, portabilidade e provisionamento rápido (IaC para desktop). O repositório inclui scripts em Shell para monitoramento de recursos, ajuste de parâmetros do sistema e interfaces interativas via terminal, padronizando workflows em Arch Linux com Hyprland."
       },
       {
-        perms: "-rw-r--r--", file: "S4F3-C0D3S", link: "https://github.com/fajremvp/S4F3-C0D3S",
+        perms: "drwxr-xr-x", file: "S4F3-C0D3S", link: "https://github.com/fajremvp/S4F3-C0D3S",
         content: "Desenvolvi um gerenciador de códigos 2FA em Java. Implementei criptografia AES-256-GCM com derivação de chave PBKDF2+HMAC-SHA256 e salts aleatórios. A arquitetura inclui defesa contra força bruta (delays), limpeza de memória de dados sensíveis e destruição segura por sobrescrita em caso de adulteração ou múltiplas falhas de autenticação."
       }
     ],
@@ -173,11 +173,11 @@ Interests: Security, Privacy, Linux, Self-Hosting, AI, Economics, and Philosophy
     ],
     projects: [
       {
-        perms: "-rw-r--r--", file: "nixos-config", link: "https://github.com/fajremvp/nixos-config",
+        perms: "drwxr-xr-x", file: "nixos-config", link: "https://github.com/fajremvp/nixos-config",
         content: `OS as Code. Complete declarative configuration of my operating systems (NixOS) and user environments, managed entirely via Nix Flakes and Home Manager. Applies the Infrastructure as Code (IaC) philosophy directly to the desktop, ensuring instant reproducibility on new hardware, immutability, fail-proof rollbacks via GRUB, and a Single Source of Truth (SSOT) for all my networking, services, drivers, and dotfiles.`
       },
       {
-        perms: "-rw-r--r--", file: "shellfolio", link: "https://github.com/fajremvp/shellfolio",
+        perms: "drwxr-xr-x", file: "shellfolio", link: "https://github.com/fajremvp/shellfolio",
         content: `Minimalist portfolio template built with Astro.js, focused on high performance and TUI (Terminal User Interface) aesthetics. It simulates a realistic Unix terminal environment in the browser, featuring a dynamic systemd-inspired boot sequence, log syntax highlighting, and faithful typographic rendering for developers, sysadmins, and Linux enthusiasts seeking a nostalgic and authentic visual identity.`
       },
       {
@@ -185,11 +185,11 @@ Interests: Security, Privacy, Linux, Self-Hosting, AI, Economics, and Philosophy
         content: "Created a minimalist Bash application launcher for dynamic tiling window managers (Hyprland/Niri/Wayland). Integrated fzf for high-performance fuzzy search via terminal, avoiding floating windows and GUI overhead."
       },
       {
-        perms: "-rw-r--r--", file: "dotfiles", link: "https://github.com/fajremvp/dotfiles",
+        perms: "lrwxrwxrwx", file: "dotfiles", link: "https://github.com/fajremvp/dotfiles",
         content: "Maintain automation and management of my Linux development environment with custom configurations, using Chezmoi and Git to ensure versioning, portability, and fast provisioning (IaC for desktop). Repository includes Shell scripts for resource monitoring, system tuning, and interactive terminal interfaces, standardizing workflows on Arch Linux with Hyprland."
       },
       {
-        perms: "-rw-r--r--", file: "S4F3-C0D3S", link: "https://github.com/fajremvp/S4F3-C0D3S",
+        perms: "drwxr-xr-x", file: "S4F3-C0D3S", link: "https://github.com/fajremvp/S4F3-C0D3S",
         content: "Developed a 2FA code manager in Java. Implemented AES-256-GCM encryption with PBKDF2+HMAC-SHA256 key derivation and random salts. Architecture includes brute-force defense (delays), memory clearing of sensitive data, and secure destruction by overwriting in case of tampering or multiple authentication failures."
       }
     ],
