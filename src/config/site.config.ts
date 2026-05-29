@@ -8,6 +8,8 @@ export const siteConfig = {
   siteUrl: "https://your-domain.com", // Used for OpenGraph
   metaImage: "/og-image.png", // Placed in public/ directory
 
+  themeColor: "#4af626",
+
   // Custom Prompt
   prompt: {
     user: "john",
