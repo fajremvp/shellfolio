@@ -12,10 +12,6 @@ A highly performant, minimalist portfolio template built with [Astro.js](https:/
 - **Built-in SEO & A11y:** OpenGraph meta tags ready, `rel="noopener noreferrer"` enforced on external links, and strict keyboard focus outlines for accessibility.
 - **Dual Language:** Built-in boilerplate for English and Portuguese (easily extensible) with zero-flicker routing.
 
-## 📂 Project Structure
-
-shellfolio is designed to be easily forkable. You rarely need to touch the `.astro` files.
-
 ## 🚀 Quick Start
 
 1. **Clone the repository:**

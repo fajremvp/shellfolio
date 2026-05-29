@@ -173,3 +173,19 @@ html.boot-complete #boot-loader {
 @media (max-width: 600px) {
   .list-item { gap: 0.8rem; font-size: 0.9rem; }
 }
+
+.tui-grid {
+  display: grid;
+  /* A 1ª coluna cresce de acordo com o maior conteúdo, a 2ª ocupa o resto */
+  grid-template-columns: max-content 1fr;
+  column-gap: 4rem; /* Distância fixa entre a coluna label e o valor */
+  row-gap: 0.8rem;
+  align-items: start;
+}
+
+/* Subgrid: Permite que elementos aninhados (como summary) participem do grid do pai */
+.tui-grid-sub {
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-column: 1 / -1; /* Ocupa as duas colunas inteiras do pai */
+}

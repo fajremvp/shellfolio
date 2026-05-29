@@ -49,15 +49,17 @@ const t = data[lang as keyof typeof data];
     {siteConfig.features.wallets && (
       <section>
         <Prompt cmd="cat ~/.wallets.conf" />
-        <div class="tui-list">
+        <div class="tui-grid">
           {paymentMethods.map((payment) => (
-            <details class="tui-details">
-              <summary class="list-item" style="align-items: flex-start;">
-                <span class="indicator"></span>
-                <span class="file" style="flex: 0 0 12ch; color: var(--text-main); font-family: var(--font-tui);">{payment.name}</span>
+            <details class="tui-details tui-grid-sub">
+              <summary class="list-item tui-grid-sub" style="align-items: flex-start;">
+                <div style="display: flex; gap: 0.5rem;">
+                  <span class="indicator"></span>
+                  <span class="file" style="color: var(--text-main); font-family: var(--font-tui);">{payment.name}</span>
+                </div>
                 <span class="text-muted" style="font-family: var(--font-prose); font-size: 1.15rem;">[ Expand to view ]</span>
               </summary>
-              <div class="expanded-content prose" style="display: flex; flex-direction: column; gap: 1rem; max-width: 300px;">
+              <div class="expanded-content prose" style="grid-column: 1 / -1; display: flex; flex-direction: column; gap: 1rem; max-width: 300px;">
                 <img src={payment.qr} alt={`QR Code ${payment.name}`} style="width: 100%; border: 2px dashed var(--text-muted); padding: 4px;" loading="lazy" />
                 <div style="font-family: var(--font-prose); font-size: 1.15rem; color: var(--text-muted); word-break: break-all; text-align: left; line-height: 1.4; user-select: text; white-space: normal;">{payment.address}</div>
               </div>
@@ -69,23 +71,20 @@ const t = data[lang as keyof typeof data];
 
     <section>
       <Prompt cmd="locale -a" />
-      <div class="tui-list">
-        <div class="list-item" style="align-items: flex-start;">
-          <span class="file" style="flex: 0 0 12ch; color: var(--text-main); font-family: var(--font-tui);">en_US.utf8</span>
-          {lang === 'en' ? (
-            <span style="color: var(--text-main); font-family: var(--font-prose); font-size: 1.15rem; font-weight: bold;">{t.ui.langEn}</span>
-          ) : (
-            <a href="/en" class="hover-link" style="color: var(--text-muted); font-family: var(--font-prose); font-size: 1.15rem;">{t.ui.langEn}</a>
-          )}
-        </div>
-        <div class="list-item" style="align-items: flex-start;">
-          <span class="file" style="flex: 0 0 12ch; color: var(--text-main); font-family: var(--font-tui);">pt_BR.utf8</span>
-          {lang === 'pt' ? (
-            <span style="color: var(--text-main); font-family: var(--font-prose); font-size: 1.15rem; font-weight: bold;">{t.ui.langPt}</span>
-          ) : (
-            <a href="/pt" class="hover-link" style="color: var(--text-muted); font-family: var(--font-prose); font-size: 1.15rem;">{t.ui.langPt}</a>
-          )}
-        </div>
+      <div class="tui-grid">
+        <span class="file" style="color: var(--text-main); font-family: var(--font-tui);">en_US.utf8</span>
+        {lang === 'en' ? (
+          <span style="color: var(--text-main); font-family: var(--font-prose); font-size: 1.15rem; font-weight: bold;">{t.ui.langEn}</span>
+        ) : (
+          <a href="/en" class="hover-link" style="color: var(--text-muted); font-family: var(--font-prose); font-size: 1.15rem;">{t.ui.langEn}</a>
+        )}
+
+        <span class="file" style="color: var(--text-main); font-family: var(--font-tui);">pt_BR.utf8</span>
+        {lang === 'pt' ? (
+          <span style="color: var(--text-main); font-family: var(--font-prose); font-size: 1.15rem; font-weight: bold;">{t.ui.langPt}</span>
+        ) : (
+          <a href="/pt" class="hover-link" style="color: var(--text-muted); font-family: var(--font-prose); font-size: 1.15rem;">{t.ui.langPt}</a>
+        )}
       </div>
     </section>
 

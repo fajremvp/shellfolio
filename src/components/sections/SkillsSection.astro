@@ -5,12 +5,12 @@ const { skills } = Astro.props;
 ---
 <section>
   <Prompt cmd="cat /etc/stack.conf" />
-  <div class="tui-list prose-list">
+  <div class="tui-grid prose-list">
     {skills.map((skill: Skill) => (
-      <div class="list-item" style="align-items: flex-start;">
-        <span class="folder" style="flex: 0 0 39ch;">[{skill.category}]</span>
+      <>
+        <span class="folder">[{skill.category}]</span>
         <span style="color: var(--text-muted);">{skill.items}</span>
-      </div>
+      </>
     ))}
   </div>
 </section>
