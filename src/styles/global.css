@@ -94,7 +94,10 @@ html.boot-complete #boot-loader {
    ========================================= */
 
 .container { width: 100%; padding: 1rem 8px; }
-.final-prompt :global(.prompt-line) { margin-bottom: 0; }
+
+.final-prompt .prompt-line {
+  margin-bottom: 0 !important;   /* Remove o espaço vazio abaixo do cursor */
+}
 
 .prose {
   font-family: var(--font-prose);
