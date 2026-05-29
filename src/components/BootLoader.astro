@@ -1,14 +1,16 @@
 ---
 // src/components/BootLoader.astro
+import type { Experience, Education, Project } from '../data/shellfolio';
+
 const { t } = Astro.props;
 
-// Mantém o nome completo de cada empresa/instituição injetado dinamicamente
+// Mantém o nome completo de cada empresa/instituição injetado dinamicamente com fallback seguro
 const logs = [
   { verb: "Mounting", rest: "file systems..." },
   { verb: "Initializing", rest: "shellfolio daemon..." },
-  ...t.experiences.map((exp: any) => ({ verb: "Loading", rest: `${exp.company} experience...` })),
-  ...t.education.map((edu: any) => ({ verb: "Loading", rest: `education ${edu.institution}...` })),
-  ...t.projects.map((proj: any) => ({ verb: "Initializing", rest: `project: ${proj.file}...` })),
+  ...(t.experiences || []).map((exp: Experience) => ({ verb: "Loading", rest: `${exp.company} experience...` })),
+  ...(t.education || []).map((edu: Education) => ({ verb: "Loading", rest: `education ${edu.institution}...` })),
+  ...(t.projects || []).map((proj: Project) => ({ verb: "Initializing", rest: `project: ${proj.file}...` })),
   { verb: "Reached", rest: "target Graphical Interface." }
 ];
 ---
@@ -21,21 +23,23 @@ const logs = [
 </div>
 
 <script is:inline>
-  if (sessionStorage.getItem('shellfolioBooted')) {
-    document.documentElement.classList.add('skip-loader');
-  } else {
-    sessionStorage.setItem('shellfolioBooted', 'true');
-
-    const lastLogLine = document.querySelector('.log-line:last-child');
-
-    if (lastLogLine) {
-      lastLogLine.addEventListener('animationend', () => {
-        setTimeout(() => {
-          document.documentElement.classList.add('boot-complete');
-        }, 400);
-      });
+  if (typeof window !== 'undefined') {
+    if (sessionStorage.getItem('shellfolioBooted')) {
+      document.documentElement.classList.add('skip-loader');
     } else {
-      setTimeout(() => document.documentElement.classList.add('boot-complete'), 2000);
+      sessionStorage.setItem('shellfolioBooted', 'true');
+
+      const lastLogLine = document.querySelector('.log-line:last-child');
+
+      if (lastLogLine) {
+        lastLogLine.addEventListener('animationend', () => {
+          setTimeout(() => {
+            document.documentElement.classList.add('boot-complete');
+          }, 400);
+        });
+      } else {
+        setTimeout(() => document.documentElement.classList.add('boot-complete'), 2000);
+      }
     }
   }
 </script>

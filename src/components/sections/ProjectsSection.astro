@@ -1,0 +1,20 @@
+---
+import Prompt from '../Prompt.astro';
+import type { Project } from '../../data/shellfolio';
+const { projects, repoLinkText } = Astro.props;
+---
+<section>
+  <Prompt cmd="ls -l ~/Projects/" />
+  <div class="tui-list">
+    {projects.map((proj: Project) => (
+      <details class="tui-details">
+        <summary class="list-item">
+          <span class="indicator"></span>
+          <span class="perms">{proj.perms}</span>
+          <span class="file">{proj.file}</span>
+        </summary>
+        <div class="expanded-content prose">{proj.content}<br /><br /><span class="text-muted">>> </span><a href={proj.link} target="_blank" rel="noopener noreferrer" class="hover-link" style="color: var(--text-muted); font-family: var(--font-prose); display: inline-block;">{repoLinkText}</a></div>
+      </details>
+    ))}
+  </div>
+</section>

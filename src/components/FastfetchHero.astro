@@ -1,18 +1,19 @@
 ---
 // src/components/FastfetchHero.astro
 import AsciiFace from './AsciiFace.astro';
+import { siteConfig } from '../config/site.config';
 
 // Recebemos o profile atual (traduzido) lá do index.astro
 const { profile } = Astro.props;
 ---
 <section class="fastfetch-wrapper">
-  <div class="first-prompt"><span class="prompt-text">fajre@shellfolio:~$</span> fastfetch</div>
+  <div class="first-prompt"><span class="prompt-text">{siteConfig.prompt.user}@{siteConfig.prompt.host}:~$</span> fastfetch</div>
   <div class="fastfetch-container">
     <div class="ascii-column">
       <AsciiFace />
     </div>
     <div class="info-column">
-      <h1><span class="user">fajre</span><span class="at">@</span><span class="host">shellfolio</span></h1>
+      <h1><span class="user">{siteConfig.prompt.user}</span><span class="at">@</span><span class="host">{siteConfig.prompt.host}</span></h1>
       <div class="separator">---------------</div>
       <p><span class="label">Name:</span> {profile.Name}</p>
       <p><span class="label">Online as:</span> {profile.Online}</p>

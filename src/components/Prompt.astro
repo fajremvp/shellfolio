@@ -1,8 +1,10 @@
 ---
 // src/components/Prompt.astro
+import { siteConfig } from '../config/site.config';
+
 const { cmd, showCursor } = Astro.props;
 ---
-<div class="prompt-line"><span class="prompt-text">fajre@shellfolio:~$</span> {cmd && <span class="cmd-text">{cmd}</span>}{showCursor && <span class="cursor"></span>}</div>
+<div class="prompt-line"><span class="prompt-text">{siteConfig.prompt.user}@{siteConfig.prompt.host}:~$</span> {cmd && <span class="cmd-text">{cmd}</span>}{showCursor && <span class="cursor"></span>}</div>
 
 <style>
   .prompt-line {

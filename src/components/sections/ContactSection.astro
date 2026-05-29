@@ -1,0 +1,19 @@
+---
+import Prompt from '../Prompt.astro';
+import { contactLinks } from '../../data/shellfolio';
+---
+<section>
+  <Prompt cmd="curl https://contact.local" />
+  <div class="tui-list">
+    {contactLinks.map((contact) => (
+       <div class="list-item" style="align-items: flex-start;">
+         <span class="file" style="flex: 0 0 10ch; color: var(--text-main); font-family: var(--font-tui);">{contact.protocol}</span>
+         {contact.url ? (
+           <a href={contact.url} target="_blank" rel="noopener noreferrer" class="hover-link" style="color: var(--text-muted); font-family: var(--font-prose); font-size: 1.15rem; word-break: break-all; display: inline-block;">{contact.handle}</a>
+         ) : (
+           <span style="color: var(--text-muted); font-family: var(--font-prose); font-size: 1.15rem; word-break: break-all; display: inline-block;">{contact.handle}</span>
+         )}
+       </div>
+    ))}
+  </div>
+</section>

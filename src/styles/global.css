@@ -69,6 +69,8 @@ html.boot-complete #boot-loader {
 .tui-details summary:focus-visible {
   background-color: var(--text-muted);
   color: var(--bg-base);
+  outline: 2px solid var(--accent-green);
+  outline-offset: 2px;
 }
 
 .hover-link:focus-visible {
@@ -85,4 +87,89 @@ html.boot-complete #boot-loader {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* =========================================
+   TUI COMPONENTS (Terminal Aesthetics)
+   ========================================= */
+
+.container { width: 100%; padding: 1rem 8px; }
+.final-prompt :global(.prompt-line) { margin-bottom: 0; }
+
+.prose {
+  font-family: var(--font-prose);
+  color: var(--text-muted);
+  width: 100%;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+.tui-list {
+  font-family: var(--font-tui);
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  font-size: 0.85rem;
+}
+
+.prose-list {
+  font-family: var(--font-prose);
+  font-size: 1.15rem;
+  line-height: 1.6;
+}
+
+.list-item {
+  display: flex;
+  gap: 1.5rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.tui-details summary::-webkit-details-marker {
+  display: none;
+}
+
+.tui-details summary {
+  list-style: none;
+  cursor: pointer;
+  user-select: none;
+  transition: opacity 0.2s;
+}
+
+.tui-details summary:hover {
+  opacity: 0.8;
+}
+
+.indicator::before {
+  content: '[+]';
+  color: var(--text-muted);
+  margin-right: 0.5rem;
+  font-family: var(--font-tui);
+}
+
+.tui-details[open] .indicator::before {
+  content: '[-]';
+  color: var(--text-main);
+}
+
+.expanded-content {
+  padding-left: 3rem;
+  margin-top: 0.8rem;
+  margin-bottom: 1.5rem;
+  border-left: 1px dashed var(--text-muted);
+  margin-left: 1rem;
+}
+
+.hover-link { text-decoration: none; }
+.hover-link:hover { text-decoration: underline; color: var(--accent-amber); }
+
+.perms { color: var(--text-main); }
+.folder { color: var(--accent-green); font-weight: bold; }
+.file { color: var(--text-main); }
+
+@media (max-width: 600px) {
+  .list-item { gap: 0.8rem; font-size: 0.9rem; }
 }

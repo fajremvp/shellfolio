@@ -1,0 +1,16 @@
+---
+import Prompt from '../Prompt.astro';
+import type { Remote } from '../../data/shellfolio';
+const { remotes } = Astro.props;
+---
+<section>
+  <Prompt cmd="git remote -v" />
+  <div class="tui-list">
+    {remotes.map((remote: Remote) => (
+       <div class="list-item" style="align-items: flex-start;">
+         <span class="file" style="flex: 0 0 10ch; color: var(--text-main); font-family: var(--font-tui);">{remote.name}</span>
+         <a href={remote.webLink} target="_blank" rel="noopener noreferrer" class="hover-link" style="color: var(--text-muted); font-family: var(--font-prose); font-size: 1.15rem; word-break: break-all; display: inline-block;">{remote.url} (fetch)</a>
+       </div>
+    ))}
+  </div>
+</section>

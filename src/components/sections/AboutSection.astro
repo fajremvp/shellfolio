@@ -1,0 +1,8 @@
+---
+import Prompt from '../Prompt.astro';
+const { about } = Astro.props;
+---
+<section>
+  <Prompt cmd="cat ~/README.md" />
+  <div class="prose">{about}</div>
+</section>
