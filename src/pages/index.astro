@@ -1,6 +1,5 @@
 ---
 // src/pages/index.astro
-// Este arquivo existe APENAS para redirecionar o visitante
 import { siteConfig } from '../config/site.config';
 ---
 <!DOCTYPE html>
@@ -10,30 +9,19 @@ import { siteConfig } from '../config/site.config';
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{siteConfig.title}</title>
 
-  <noscript>
-    <meta http-equiv="refresh" content="0;url=/en/" />
-  </noscript>
+  <meta http-equiv="refresh" content="0;url=/en/" />
 
   <style>
-    /* Estilo mínimo só pra tela não ficar branca durante os milissegundos do redirect */
-    body { background-color: #000000; color: #4af626; font-family: monospace; padding: 1rem; }
+    body { background-color: #000000; }
   </style>
-</head>
-<body>
 
   <script is:inline>
-    // Detecta idioma. navigator.language é o padrão moderno. fallback pro userLanguage do IE (legado).
+    // Interceptador rápido: Se o idioma preferido for PT, muda o destino antes do meta agir
     const userLang = navigator.language || navigator.userLanguage;
-
-    // Pega as primeiras duas letras (ex: "pt-BR" -> "pt")
-    const baseLang = userLang.toLowerCase().substring(0, 2);
-
-    // Redireciona imediatamente sem deixar rastro no histórico do botão "Voltar" do navegador
-    if (baseLang === 'pt') {
+    if (userLang.toLowerCase().startsWith('pt')) {
       window.location.replace('/pt');
-    } else {
-      window.location.replace('/en');
     }
   </script>
-</body>
+</head>
+<body></body>
 </html>

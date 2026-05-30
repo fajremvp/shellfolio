@@ -1,11 +1,12 @@
 ---
 import Prompt from '../Prompt.astro';
-import { paymentMethods } from '../../data/shellfolio';
+// Arquivo 100% desacoplado: recebe dados apenas via prop
+const { wallets } = Astro.props;
 ---
 <section>
   <Prompt cmd="cat ~/.wallets.conf" />
   <div class="tui-list">
-    {paymentMethods.map((payment) => (
+    {wallets.map((payment: any) => (
       <details class="tui-details">
         <summary class="list-item">
           <span class="indicator"></span>

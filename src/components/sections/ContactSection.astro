@@ -1,11 +1,12 @@
 ---
 import Prompt from '../Prompt.astro';
-import { contactLinks } from '../../data/shellfolio';
+// Arquivo 100% desacoplado: recebe dados apenas via prop
+const { contacts } = Astro.props;
 ---
 <section>
   <Prompt cmd="curl https://contact.local" />
   <div class="tui-grid">
-    {contactLinks.map((contact) => (
+    {contacts.map((contact: any) => (
        <>
          <span class="file">{contact.protocol}</span>
          {contact.url ? (

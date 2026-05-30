@@ -4,10 +4,11 @@ import Layout from '../../layouts/Layout.astro';
 import BootLoader from '../../components/BootLoader.astro';
 import FastfetchHero from '../../components/FastfetchHero.astro';
 import Prompt from '../../components/Prompt.astro';
-import { data } from '../../data/shellfolio';
 import { siteConfig } from '../../config/site.config';
 
-// Importando as Seções Modularizadas
+// IMPORTANTE: O Index deve ser o ÚNICO arquivo a importar dados brutos!
+import { data, contactLinks, paymentMethods } from '../../data/shellfolio';
+
 import AboutSection from '../../components/sections/AboutSection.astro';
 import ExperiencesSection from '../../components/sections/ExperiencesSection.astro';
 import ProjectsSection from '../../components/sections/ProjectsSection.astro';
@@ -28,6 +29,11 @@ export function getStaticPaths() {
 
 const { lang } = Astro.params;
 const t = data[lang as keyof typeof data];
+
+// Guard de Rota: Redireciona com segurança caso um idioma inválido seja forçado na URL
+if (!t) {
+  return Astro.redirect('/en');
+}
 ---
 <Layout title={siteConfig.title}>
   <BootLoader t={t} />
@@ -47,9 +53,10 @@ const t = data[lang as keyof typeof data];
 
     {siteConfig.features.remotes && <RemotesSection remotes={t.remotes} />}
 
-    {siteConfig.features.contact && <ContactSection />}
+    {/* Passando os dados estáticos como props, respeitando a arquitetura */}
+    {siteConfig.features.contact && <ContactSection contacts={contactLinks} />}
 
-    {siteConfig.features.wallets && <WalletsSection />}
+    {siteConfig.features.wallets && <WalletsSection wallets={paymentMethods} />}
 
     <LocaleSection lang={lang} t={t} />
 
