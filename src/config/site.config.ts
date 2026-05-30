@@ -34,41 +34,41 @@ export const siteConfig = {
   onionAddress: "your-onion-address-here.onion",
 
   // Fastfetch ASCII Art (Use raw string template)
-  asciiArt: `                               ':;;:;;;;;;:;;;:::;
-                            ,c:,'.............',;;;;;::;
-                          .l,,.........................,c.
-                        ,lc;'............................,;
-                      c::;'...............................,c
-                     :,''.......'''........................':'
-                    :''....,coodddol:,......................';,
-                    ;....:oxkkkkkkxxxdlc,....................';
-                   .,..,okkOOOOOOkkkkxxxddol:;'....  .........,
-                   ''.,dOOOOOOOOOOOkkkkxxxddolc::;,... .......'
-                   .'.ckOOOOOOOOkkkkkkkxkxddoolcc:;;,'........'
-                    ',dOOOOOOOOOkOkkkkkkkxxdoolcc::;;,.........
-                     ckOxooolloodxkOOOOkdoc::;:::::;;;;,.......
-                     co;,''..';;:ldxxxdl,...........',,;;.....
-                     ldolcccc;;;codxdl:,....',,'''...',;;''...,
-                   'xkxoc;;;...';lxOxl'...,c,......''',;;;,'',::
-                    xOkxxxll:;:coxkkdc,'';:c:;,,''',;;,;;;,,,,.,
-                    l0OkkkxxddxxkOOxo:,,;:llllllclc::;;;;;,.','.
-                    ;0OOOOOkkkkkOOOxoc;,;codxxxxdol::;;;;,,..'.
-                     k0OOOOkxxkO00Odl:;:;,:odxxddol:;,,,,'''''
-                     cOkkkxodxkxodd:,..'..':cooolc:,,,,'..,,,
-                     ckxddlodxoc;;;'......',;::c:;,'''....,
-                     ;oxd:'.',,....,,...........;,'.......
-                     .;cl'..,:;:::cc:;,........ .........
-                      '';,':xxxxxxdoolc;,,,;:;...........
-                      ...'';dkxoc:,'''''',::;'......  ...
-                      .....':okdlc;''',;;;,'...        ..
-                       ......,;,,;,;,,''.....         ...
-                        . ...............            ..,.
-                         .....   .   .              ..',;
-                          ..  .                   ...'',;;
-                           :'..                 .....'',;:c.
-                           dxl'...          ........''',,;;:c;,,.
-                          .xkkkxol;,...............'''',,;;'.....;'
-                        .;lOOOOkkxdlc:;;,''',,''''',,,,,'..    .....';
-                     .,;,'xOOOkkkkxxdolc::cc::;;;;;;,..           .....',,
-                     '.''.oOOOkkkkxxdolccclccc::::,.              ........'.`
+  asciiArt: `                ':;;:;;;;;;:;;;:::;
+             ,c:,'.............',;;;;;::;
+           .l,,.........................,c.
+         ,lc;'............................,;
+       c::;'...............................,c
+      :,''.......'''........................':'
+     :''....,coodddol:,......................';,
+     ;....:oxkkkkkkxxxdlc,....................';
+    .,..,okkOOOOOOkkkkxxxddol:;'....  .........,
+    ''.,dOOOOOOOOOOOkkkkxxxddolc::;,... .......'
+    .'.ckOOOOOOOOkkkkkkkxkxddoolcc:;;,'........'
+     :,dOOOOOOOOOkOkkkkkkkxxdoolcc::;;,.........
+      ckOxooolloodxkOOOOkdoc::;:::::;;;;,.......
+      co;,''..';;:ldxxxdl,...........',,;;.....
+      ldolcccc;;;codxdl:,....',,'''...',;;''...,
+     xkxoc;;;...';lxOxl'...,c,......''',;;;,'',::
+     xOkxxxll:;:coxkkdc,'';:c:;,,''',;;,;;;,,,,.,
+     l0OkkkxxddxxkOOxo:,,;:llllllclc::;;;;;,.','.
+     ;0OOOOOkkkkkOOOxoc;,;codxxxxdol::;;;;,,..'.
+      k0OOOOkxxkO00Odl:;:;,:odxxddol:;,,,,'''''
+      cOkkkxodxkxodd:,..'..':cooolc:,,,,'..,,,
+      ckxddlodxoc;;;'......',;::c:;,'''....,
+      ;oxd:'.',,....,,...........;,'.......
+      .;cl'..,:;:::cc:;,........ .........
+       '';,':xxxxxxdoolc;,,,;:;...........
+       ...'';dkxoc:,'''''',::;'......  ...
+       .....':okdlc;''',;;;,'...        ..
+        ......,;,,;,;,,''.....         ...
+         . ...............            ..,.
+          .....   .   .              ..',;
+           ..  .                   ...'',;;
+            :'..                 .....'',;:c.
+            dxl'...          ........''',,;;:c;,,.
+           .xkkkxol;,...............'''',,;;'.....;'
+         .;lOOOOkkxdlc:;;,''',,''''',,,,,'..    .....';
+      .,;,'xOOOkkkkxxdolc::cc::;;;;;;,..           .....',,
+    ,;'.''.oOOOkkkkxxdolccclccc::::,.              ........'.`
 };
