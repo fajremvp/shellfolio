@@ -1,0 +1,8 @@
+---
+import Prompt from '../Prompt.astro';
+import { siteConfig } from '../../config/site.config';
+---
+<section>
+  <Prompt cmd="cat /etc/tor/shellfolio/hostname" />
+  <div class="prose"><span class="hover-link" style="color: var(--text-muted); font-family: var(--font-prose); display: inline-block;">{siteConfig.onionAddress}</span></div>
+</section>

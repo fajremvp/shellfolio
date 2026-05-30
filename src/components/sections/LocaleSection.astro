@@ -1,0 +1,23 @@
+---
+import Prompt from '../Prompt.astro';
+
+const { lang, t } = Astro.props;
+---
+<section>
+  <Prompt cmd="locale -a" />
+  <div class="tui-grid">
+    <span class="file">en_US.utf8</span>
+    {lang === 'en' ? (
+      <span style="color: var(--text-main); font-family: var(--font-prose); font-size: 1.15rem; font-weight: bold;">{t.ui.langEn}</span>
+    ) : (
+      <a href="/en" class="hover-link" style="color: var(--text-muted); font-family: var(--font-prose); font-size: 1.15rem;">{t.ui.langEn}</a>
+    )}
+
+    <span class="file">pt_BR.utf8</span>
+    {lang === 'pt' ? (
+      <span style="color: var(--text-main); font-family: var(--font-prose); font-size: 1.15rem; font-weight: bold;">{t.ui.langPt}</span>
+    ) : (
+      <a href="/pt" class="hover-link" style="color: var(--text-muted); font-family: var(--font-prose); font-size: 1.15rem;">{t.ui.langPt}</a>
+    )}
+  </div>
+</section>

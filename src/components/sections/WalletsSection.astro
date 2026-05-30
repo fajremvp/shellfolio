@@ -1,0 +1,21 @@
+---
+import Prompt from '../Prompt.astro';
+import { paymentMethods } from '../../data/shellfolio';
+---
+<section>
+  <Prompt cmd="cat ~/.wallets.conf" />
+  <div class="tui-list">
+    {paymentMethods.map((payment) => (
+      <details class="tui-details">
+        <summary class="list-item">
+          <span class="indicator"></span>
+          <span class="file">{payment.name}</span>
+        </summary>
+        <div class="expanded-content prose" style="display: flex; flex-direction: column; gap: 1rem; max-width: 300px;">
+          <img src={payment.qr} alt={`QR Code ${payment.name}`} style="width: 100%; border: 2px dashed var(--text-muted); padding: 4px;" loading="lazy" />
+          <div style="word-break: break-all; user-select: text;">{payment.address}</div>
+        </div>
+      </details>
+    ))}
+  </div>
+</section>

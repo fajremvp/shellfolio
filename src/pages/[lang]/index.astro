@@ -4,7 +4,7 @@ import Layout from '../../layouts/Layout.astro';
 import BootLoader from '../../components/BootLoader.astro';
 import FastfetchHero from '../../components/FastfetchHero.astro';
 import Prompt from '../../components/Prompt.astro';
-import { data, paymentMethods } from '../../data/shellfolio';
+import { data } from '../../data/shellfolio';
 import { siteConfig } from '../../config/site.config';
 
 // Importando as Seções Modularizadas
@@ -15,6 +15,9 @@ import EducationSection from '../../components/sections/EducationSection.astro';
 import SkillsSection from '../../components/sections/SkillsSection.astro';
 import RemotesSection from '../../components/sections/RemotesSection.astro';
 import ContactSection from '../../components/sections/ContactSection.astro';
+import WalletsSection from '../../components/sections/WalletsSection.astro';
+import LocaleSection from '../../components/sections/LocaleSection.astro';
+import TorSection from '../../components/sections/TorSection.astro';
 
 export function getStaticPaths() {
   return [
@@ -46,51 +49,11 @@ const t = data[lang as keyof typeof data];
 
     {siteConfig.features.contact && <ContactSection />}
 
-    {siteConfig.features.wallets && (
-      <section>
-        <Prompt cmd="cat ~/.wallets.conf" />
-        <div class="tui-list">
-          {paymentMethods.map((payment) => (
-            <details class="tui-details">
-              <summary class="list-item">
-                <span class="indicator"></span>
-                <span class="file">{payment.name}</span>
-              </summary>
-              <div class="expanded-content prose" style="display: flex; flex-direction: column; gap: 1rem; max-width: 300px;">
-                <img src={payment.qr} alt={`QR Code ${payment.name}`} style="width: 100%; border: 2px dashed var(--text-muted); padding: 4px;" loading="lazy" />
-                <div style="word-break: break-all; user-select: text;">{payment.address}</div>
-              </div>
-            </details>
-          ))}
-        </div>
-      </section>
-    )}
+    {siteConfig.features.wallets && <WalletsSection />}
 
-    <section>
-      <Prompt cmd="locale -a" />
-      <div class="tui-grid">
-        <span class="file">en_US.utf8</span>
-        {lang === 'en' ? (
-          <span style="color: var(--text-main); font-family: var(--font-prose); font-size: 1.15rem; font-weight: bold;">{t.ui.langEn}</span>
-        ) : (
-          <a href="/en" class="hover-link" style="color: var(--text-muted); font-family: var(--font-prose); font-size: 1.15rem;">{t.ui.langEn}</a>
-        )}
+    <LocaleSection lang={lang} t={t} />
 
-        <span class="file">pt_BR.utf8</span>
-        {lang === 'pt' ? (
-          <span style="color: var(--text-main); font-family: var(--font-prose); font-size: 1.15rem; font-weight: bold;">{t.ui.langPt}</span>
-        ) : (
-          <a href="/pt" class="hover-link" style="color: var(--text-muted); font-family: var(--font-prose); font-size: 1.15rem;">{t.ui.langPt}</a>
-        )}
-      </div>
-    </section>
-
-    {siteConfig.features.torMirror && (
-      <section>
-        <Prompt cmd="cat /etc/tor/shellfolio/hostname" />
-        <div class="prose"><span class="hover-link" style="color: var(--text-muted); font-family: var(--font-prose); display: inline-block;">{siteConfig.onionAddress}</span></div>
-      </section>
-    )}
+    {siteConfig.features.torMirror && <TorSection />}
 
     <div class="final-prompt" style="margin-top: 2rem;">
        <Prompt showCursor={true} />
