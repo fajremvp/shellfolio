@@ -7,7 +7,7 @@ import { contactLinks } from '../../data/shellfolio';
   <div class="tui-grid">
     {contactLinks.map((contact) => (
        <>
-         <span class="file" style="color: var(--text-main); font-family: var(--font-tui);">{contact.protocol}</span>
+         <span class="file">{contact.protocol}</span>
          {contact.url ? (
            <a href={contact.url} target="_blank" rel="noopener noreferrer" class="hover-link" style="color: var(--text-muted); font-family: var(--font-prose); font-size: 1.15rem; word-break: break-all;">{contact.handle}</a>
          ) : (

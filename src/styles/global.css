@@ -176,7 +176,12 @@ html.boot-complete #boot-loader {
 
 .perms { color: var(--text-main); }
 .folder { color: var(--accent-green); font-weight: bold; }
-.file { color: var(--text-main); }
+
+.file {
+  color: var(--text-main);
+  font-family: var(--font-tui);
+  font-size: 0.85rem;
+}
 
 @media (max-width: 600px) {
   .list-item { gap: 0.8rem; font-size: 0.9rem; }
@@ -188,7 +193,7 @@ html.boot-complete #boot-loader {
   grid-template-columns: max-content 1fr;
   column-gap: 4rem; /* Distância fixa entre a coluna label e o valor */
   row-gap: 0.8rem;
-  align-items: start;
+  align-items: baseline; /* Alinha os textos pela base da fonte, independente do tamanho */
 }
 
 /* Subgrid: Permite que elementos aninhados (como summary) participem do grid do pai */

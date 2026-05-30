@@ -8,7 +8,7 @@ const { remotes } = Astro.props;
   <div class="tui-grid">
     {remotes.map((remote: Remote) => (
        <>
-         <span class="file" style="color: var(--text-main); font-family: var(--font-tui);">{remote.name}</span>
+         <span class="file">{remote.name}</span>
          <a href={remote.webLink} target="_blank" rel="noopener noreferrer" class="hover-link" style="color: var(--text-muted); font-family: var(--font-prose); font-size: 1.15rem; word-break: break-all;">{remote.url} (fetch)</a>
        </>
     ))}
