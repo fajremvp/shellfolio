@@ -7,7 +7,21 @@ import { siteConfig } from '../config/site.config';
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>{siteConfig.title}</title>
+  <meta name="description" content={siteConfig.description} />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={siteConfig.siteUrl} />
+  <meta property="og:title" content={siteConfig.title} />
+  <meta property="og:description" content={siteConfig.description} />
+  <meta property="og:image" content={siteConfig.metaImage} />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content={siteConfig.siteUrl} />
+  <meta name="twitter:title" content={siteConfig.title} />
+  <meta name="twitter:description" content={siteConfig.description} />
+  <meta name="twitter:image" content={siteConfig.metaImage} />
 
   <meta http-equiv="refresh" content="0;url=/en/" />
 
