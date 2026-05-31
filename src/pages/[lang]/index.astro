@@ -6,7 +6,7 @@ import FastfetchHero from '../../components/FastfetchHero.astro';
 import Prompt from '../../components/Prompt.astro';
 import { siteConfig } from '../../config/site.config';
 
-// IMPORTANTE: O Index deve ser o ÚNICO arquivo a importar dados brutos!
+// IMPORTANT: Index must be the ONLY file importing raw data!
 import { data, contactLinks, paymentMethods } from '../../data/shellfolio';
 
 import AboutSection from '../../components/sections/AboutSection.astro';
@@ -30,7 +30,7 @@ export function getStaticPaths() {
 const { lang } = Astro.params;
 const t = data[lang as keyof typeof data];
 
-// Guard de Rota: Redireciona com segurança caso um idioma inválido seja forçado na URL
+// Safely redirects if an invalid language is forced in the URL
 if (!t) {
   return Astro.redirect('/en');
 }
@@ -53,7 +53,7 @@ if (!t) {
 
     {siteConfig.features.remotes && <RemotesSection remotes={t.remotes} />}
 
-    {/* Passando os dados estáticos como props, respeitando a arquitetura */}
+    {/* Passing static data as props, respecting the architecture */}
     {siteConfig.features.contact && <ContactSection contacts={contactLinks} />}
 
     {siteConfig.features.wallets && <WalletsSection wallets={paymentMethods} />}

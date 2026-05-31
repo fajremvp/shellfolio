@@ -1,5 +1,4 @@
 ---
-// src/components/AsciiFace.astro
 import { siteConfig } from '../config/site.config';
 ---
 <pre class="ascii-art">
@@ -10,8 +9,8 @@ import { siteConfig } from '../config/site.config';
   .ascii-art {
     color: var(--accent-green);
     white-space: pre;
-    font-size: 7px; /* Tente usar pixels cravados se a fonte borrar */
-    line-height: 1.1; /* Fontes de hardware costumam preferir line-height 1 */
+    font-size: 7px;
+    line-height: 1.1;
   }
   @media (min-width: 768px) {
     .ascii-art { font-size: 10.45px; }

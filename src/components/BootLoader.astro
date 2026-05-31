@@ -1,10 +1,9 @@
 ---
-// src/components/BootLoader.astro
 import type { Experience, Education, Project } from '../data/shellfolio';
 
 const { t } = Astro.props;
 
-// Mantém o nome completo de cada empresa/instituição injetado dinamicamente com fallback seguro
+// Generates boot log lines from dynamic portfolio data (experiences, education, projects)
 const logs = [
   { verb: "Mounting", rest: "file systems..." },
   { verb: "Initializing", rest: "shellfolio daemon..." },
@@ -52,7 +51,7 @@ const logs = [
 
   .tui-text { font-family: var(--font-tui); }
 
-  /* Paleta exata do BootLoader */
+  /* Exact BootLoader color palette */
   .bracket { color: var(--text-main); font-weight: bold; }
   .ok { color: var(--accent-green); font-weight: bold; }
   .verb { color: var(--text-muted); }
@@ -63,7 +62,7 @@ const logs = [
     animation: popIn 0.1s step-end forwards;
     margin-bottom: 0.3rem;
     line-height: 1.5;
-    white-space: nowrap; /* Impede qualquer quebra ou espaço extra indesejado */
+    white-space: nowrap;
   }
 
   @keyframes popIn {

@@ -1,18 +1,18 @@
 repos:
-  # Higiene Básica
+  # Basic Hygiene
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
     hooks:
-      - id: trailing-whitespace      # Remove espaços inúteis
-      - id: end-of-file-fixer        # Garante linha vazia no final
-      - id: check-added-large-files  # Bloqueia binários gigantes
-      - id: check-merge-conflict     # Bloqueia marcas de conflito (<<<<)
-      - id: detect-private-key       # Bloqueia arquivos id_rsa/.pem
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-added-large-files
+      - id: check-merge-conflict
+      - id: detect-private-key
 
-  # Segurança de Segredos (Gitleaks)
+  # Secret Security (Gitleaks)
   - repo: https://github.com/gitleaks/gitleaks
     rev: v8.30.0
     hooks:
       - id: gitleaks
-        # --redact: Mostra que achou um segredo, mas não imprime o valor no terminal (segurança em logs)
+        # --redact: Reports finding a secret without printing its value to the terminal (safe for logs)
         args: ["--redact", "--exit-code", "1"]

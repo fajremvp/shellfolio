@@ -1,5 +1,4 @@
 ---
-// src/components/Prompt.astro
 import { siteConfig } from '../config/site.config';
 
 const { cmd, showCursor } = Astro.props;
@@ -26,7 +25,7 @@ const { cmd, showCursor } = Astro.props;
 </style>
 
 <style is:global>
-  /* O cursor com is:global garante que a animação não seja otimizada e descartada */
+  /* The is:global cursor ensures the animation is not optimized away and discarded */
   .cursor {
     display: inline-block;
     width: 10px;

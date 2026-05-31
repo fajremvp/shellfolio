@@ -1,9 +1,7 @@
 ---
-// src/components/FastfetchHero.astro
 import AsciiFace from './AsciiFace.astro';
 import { siteConfig } from '../config/site.config';
 
-// Recebemos o profile atual (traduzido) lá do index.astro
 const { profile } = Astro.props;
 ---
 <section class="fastfetch-wrapper">
@@ -110,33 +108,30 @@ const { profile } = Astro.props;
   }
   .color-row {
     display: flex;
-    /* Zero gap para os blocos grudarem formando a barra clássica */
     gap: 0;
   }
   .color-row span {
-    /* Dimensões que imitam exatamente os blocos renderizados pelo fastfetch (aprox. 3 caracteres) */
+    /* Dimensions that closely mimic blocks rendered by fastfetch (approx. 3 chars) */
     width: 45px;
     height: 30px;
     display: inline-block;
   }
 
-  /* Cores Normais (0-7) */
-  .c0 { background: #000000; } /* Black */
-  .c1 { background: #CC0000; } /* Red */
-  .c2 { background: #00CC00; } /* Green */
-  .c3 { background: #CCCC00; } /* Yellow */
-  .c4 { background: #0000CC; } /* Blue */
-  .c5 { background: #CC00CC; } /* Magenta */
-  .c6 { background: #00CCCC; } /* Cyan */
-  .c7 { background: #CCCCCC; } /* White (Light Gray) */
+  .c0 { background: #000000; }
+  .c1 { background: #CC0000; }
+  .c2 { background: #00CC00; }
+  .c3 { background: #CCCC00; }
+  .c4 { background: #0000CC; }
+  .c5 { background: #CC00CC; }
+  .c6 { background: #00CCCC; }
+  .c7 { background: #CCCCCC; }
 
-  /* Cores Brilhantes/Neon (8-15) */
-  .c8 { background: #767676; } /* Bright Black (Medium Gray) */
-  .c9 { background: #FF0000; } /* Bright Red */
-  .c10 { background: #00FF00; } /* Bright Green */
-  .c11 { background: #FFFF00; } /* Bright Yellow */
-  .c12 { background: #0000FF; } /* Bright Blue */
-  .c13 { background: #FF00FF; } /* Bright Magenta */
-  .c14 { background: #00FFFF; } /* Bright Cyan */
-  .c15 { background: #FFFFFF; } /* Bright White */
+  .c8 { background: #767676; }
+  .c9 { background: #FF0000; }
+  .c10 { background: #00FF00; }
+  .c11 { background: #FFFF00; }
+  .c12 { background: #0000FF; }
+  .c13 { background: #FF00FF; }
+  .c14 { background: #00FFFF; }
+  .c15 { background: #FFFFFF; }
 </style>

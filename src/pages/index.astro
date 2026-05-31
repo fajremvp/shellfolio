@@ -16,7 +16,6 @@ import { siteConfig } from '../config/site.config';
   </style>
 
   <script is:inline>
-    // Interceptador rápido: Se o idioma preferido for PT, muda o destino antes do meta agir
     const userLang = navigator.language || navigator.userLanguage;
     if (userLang.toLowerCase().startsWith('pt')) {
       window.location.replace('/pt');
