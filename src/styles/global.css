@@ -134,6 +134,7 @@ html.boot-complete #boot-loader {
   cursor: pointer;
   user-select: none;
   transition: opacity 0.2s;
+  width: fit-content;
 }
 
 .tui-details summary:hover {
@@ -188,6 +189,7 @@ html.boot-complete #boot-loader {
   column-gap: 4rem; /* Fixed gap between the label column and value */
   row-gap: 0.8rem;
   align-items: baseline; /* Aligns text by font baseline, regardless of size */
+  justify-items: start;
 }
 
 .tui-grid-sub {

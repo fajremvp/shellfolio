@@ -34,7 +34,8 @@ export const siteConfig = {
   onionAddress: "your-onion-address-here.onion",
 
   // Fastfetch ASCII Art (Use raw string template)
-  asciiArt: `                ':;;:;;;;;;:;;;:::;
+  asciiArt: `
+  		':;;:;;;;;;:;;;:::;
              ,c:,'.............',;;;;;::;
            .l,,.........................,c.
          ,lc;'............................,;
