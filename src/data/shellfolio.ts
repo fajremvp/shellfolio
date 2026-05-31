@@ -1,5 +1,3 @@
-// src/data/shellfolio.ts
-
 // --- Types ---
 export interface Profile {
   Name: string;
@@ -90,7 +88,7 @@ export const data: PortfolioData = {
       Online: "john",
       Uptime: "25 years",
       Location: "Earth",
-      Role: "Sysadmin & Developer",
+      Role: "Sysadmin & Desenvolvedor",
       Status: "Open to work",
       OS: "Arch Linux x86_64",
       Host: "ThinkPad T14",
@@ -109,13 +107,13 @@ export const data: PortfolioData = {
         date: "2023-Pres",
         company: "Open Source Corp",
         folder: "Senior Developer",
-        content: `Lead developer for critical infrastructure projects.\n- Built highly scalable microservices.\n- Migrated legacy systems to cloud-native architectures.`
+        content: `I worked as a lead developer on critical infrastructure projects.\n- I built highly scalable microservices.\n- I migrated legacy systems to cloud-native architectures.`
       }
     ],
     projects: [
       {
         perms: "drwxr-xr-x", file: "shellfolio", link: "https://github.com/your-username/shellfolio",
-        content: `Minimalist TUI portfolio template built with Astro.js. Features a realistic boot sequence and systemd-inspired logs.`
+        content: `I built this minimalist TUI portfolio template using Astro.js.`
       }
     ],
     education: [
@@ -140,7 +138,7 @@ export const data: PortfolioData = {
       Uptime: "25 anos",
       Location: "Terra",
       Role: "Sysadmin & Desenvolvedor",
-      Status: "Disponível",
+      Status: "Disponivel",
       OS: "Arch Linux x86_64",
       Host: "ThinkPad T14",
       Kernel: "Linux 6.6",
@@ -157,19 +155,19 @@ export const data: PortfolioData = {
         perms: "drwxr-xr-x",
         date: "2023-Pres",
         company: "Open Source Corp",
-        folder: "Desenvolvedor Sênior",
-        content: `Desenvolvedor líder para projetos críticos.\n- Construiu microsserviços escaláveis.\n- Migrou sistemas legados para arquitetura em nuvem.`
+        folder: "Desenvolvedor Senior",
+        content: `Atuei como desenvolvedor líder em projetos críticos.\n- Construi microsserviços escaláveis.\n- Migrei sistemas legados para arquitetura em nuvem.`
       }
     ],
     projects: [
       {
         perms: "drwxr-xr-x", file: "shellfolio", link: "https://github.com/your-username/shellfolio",
-        content: `Template minimalista de portfólio TUI construído com Astro.js.`
+        content: `Construí este template minimalista de portfólio TUI usando Astro.js.`
       }
     ],
     education: [
       {
-        perms: "drwxr-xr-x", date: "2018-2022", institution: "Universidade de Tecnologia", folder: "Ciência da Computação",
+        perms: "drwxr-xr-x", date: "2018-2022", institution: "Universidade de Tecnologia", folder: "Ciencia da Computacao",
         content: "Bacharelado em Ciência da Computação."
       }
     ],
